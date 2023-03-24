@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import {SERVER_URL} from '../constants.js'
+import {SEMESTER_LIST, SERVER_URL} from '../constants.js'
 import Grid from '@mui/material/Grid';
 import {DataGrid} from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
@@ -26,75 +26,14 @@ class Student extends Component {
       this.state = {open: false, stud:{ } };
     }
 
-    handleClickOpen = () => {
-        this.setState( {open:true} );
-      };
-  
-      handleClose = () => {
-        this.setState( {open:false} );
-      };
-  
-      handleChange = (event) => {
-        this.setState({student:{student_id: event.target.value}});
-      }
-  
-    // Save student and close modal form
-      handleAdd = () => {
-         this.props.addStudent(this.state.student);
-         this.handleClose();
-      }
-
-        // Add student
-  addStudent = (student) => {
-    const token = Cookies.get('XSRF-TOKEN');
- 
-    fetch(`${SERVER_URL}/schedule`,
-      { 
-        method: 'POST', 
-        headers: { 'Content-Type': 'application/json',
-                   'X-XSRF-TOKEN': token  }, 
-        body: JSON.stringify(student)
-      })
-    .then(res => {
-        if (res.ok) {
-          toast.success("Student successfully added", {
-              position: toast.POSITION.BOTTOM_LEFT
-          });
-          this.fetchStudents();
-        } else {
-          toast.error("Error when adding", {
-              position: toast.POSITION.BOTTOM_LEFT
-          });
-          console.error('Post http status =' + res.status);
-        }})
-    .catch(err => {
-      toast.error("Error when adding", {
-            position: toast.POSITION.BOTTOM_LEFT
-        });
-        console.error(err);
-    })
-  } 
-
 
 
     render()  { 
-        {
-            field: 'id',
-            headerName: '  ',
-            sortable: false,
-            width: 200,
-            renderCell: (params) => (
-            <Button
-                variant="contained"
-                color="secondary"
-                size="small"
-                style={{ marginLeft: 16 }} 
-                onClick={()=>{this.onDelClick(params.value)}}
-            >
-                Add Student
-            </Button>
-            //)
-          }
+        const icolumns = [
+            { field: 'name', headerName: 'Name', width: 300, editable:true},
+            { field: 'email', headerName: 'Email', width: 300 , editable:true},
+        ];
+        const irows = [{name:'  ', email:'  '}];
         return (
             <div>
               <Button variant="outlined" color="primary" style={{margin: 10}} onClick={this.handleClickOpen}>
@@ -109,7 +48,10 @@ class Student extends Component {
                     <Button color="secondary" onClick={this.handleClose}>Cancel</Button>
                     <Button id="Add" color="primary" onClick={this.handleAdd}>Add</Button>
                   </DialogActions>
-                </Dialog>      
+                </Dialog>
+                <div style={{ height: 400, width: '100%' }}>
+                    <DataGrid rows={irows} columns={icolumns} />
+                </div>      
             </div>
         ); 
       }
