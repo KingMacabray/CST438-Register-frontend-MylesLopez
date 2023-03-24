@@ -161,7 +161,7 @@ class SchedList extends Component {
                 </Typography>
             </Toolbar>
           </AppBar>
-          <div className="App">
+          <div align="left">
             <div style={{width:'100%'}}>
                 For DEBUG:  display state.
                 {JSON.stringify(this.state)}

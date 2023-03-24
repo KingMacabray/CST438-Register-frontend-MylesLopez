@@ -1,4 +1,5 @@
 
+/*
 import { ToastContainer, toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
+*/
 
 import Button from '@mui/material/Button';
 import React, { Component } from 'react';
@@ -25,7 +26,7 @@ import TextField from '@mui/material/TextField';
 class AddStudent extends Component {
     constructor(props) {
     super(props);
-    this.state.student = {open: false, student:{ } };
+    this.state.student = {open: false, student:[] };
   };
   
   handleClickOpen = () => {
