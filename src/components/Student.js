@@ -23,9 +23,43 @@ import TextField from '@mui/material/TextField';
 class Student extends Component {
     constructor(props) {
       super(props);
-      this.state = {open: false, stud:{ } };
+      this.state = {open: false, stud:[] };
     }
+    
+    //componentDidMount() {
+    //    this.fetchStudents();
+    //  }
 
+    addStudent = ( ) => {
+        console.log("Student.handleSubmit");
+        const token = Cookies.get('XSRF-TOKEN');
+        
+        fetch(`${SERVER_URL}/student` , 
+            {  
+              method: 'POST', 
+              headers: { 'Content-Type': 'application/json',
+                         'X-XSRF-TOKEN': token }, 
+              body: JSON.stringify(this.state.irows.name, this.state.irows.email)
+            } )
+        .then(res => {
+            if (res.ok) {
+              toast.success("Student successfully added", {
+              position: toast.POSITION.BOTTOM_LEFT
+              });
+              this.fetchGrades();
+            } else {
+              toast.error("Student addition failed", {
+              position: toast.POSITION.BOTTOM_LEFT
+              });
+              console.error('Put http status =' + res.status);
+        }})
+          .catch(err => {
+            toast.error("Student addition failed", {
+              position: toast.POSITION.BOTTOM_LEFT
+            });
+            console.error(err);
+          });
+     };  
 
 
     render()  { 
@@ -33,7 +67,7 @@ class Student extends Component {
             { field: 'name', headerName: 'Name', width: 300, editable:true},
             { field: 'email', headerName: 'Email', width: 300 , editable:true},
         ];
-        const irows = [{name:'  ', email:'  '}];
+        const irows = [{id:0, name:' name here ', email:' email here '}];
         return (
             <div>
               <Button variant="outlined" color="primary" style={{margin: 10}} onClick={this.handleClickOpen}>
@@ -51,6 +85,9 @@ class Student extends Component {
                 </Dialog>
                 <div style={{ height: 400, width: '100%' }}>
                     <DataGrid rows={irows} columns={icolumns} />
+                    <Button id="AddStudent" variant="outlined" color="primary" style={{margin: 10}} onClick={this.addStudent} >
+                   Add Student
+                </Button>
                 </div>      
             </div>
         ); 
