@@ -6,4 +6,4 @@ export const SEMESTER_LIST = [
   {id:2, year:2021, name:'Fall'}
 ] ;
 
-export const STUDNAMES = [{id:0, name:' name here ', email:' email here ', editable:true}];
+//export const STUDNAMES = [{id:0, name:' name here ', email:' email here ', editable:true}];
