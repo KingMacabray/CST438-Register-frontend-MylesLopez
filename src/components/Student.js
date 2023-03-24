@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import {SEMESTER_LIST, SERVER_URL} from '../constants.js'
+import {SEMESTER_LIST, SERVER_URL, STUDNAMES} from '../constants.js'
 import Grid from '@mui/material/Grid';
 import {DataGrid} from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
@@ -23,7 +23,7 @@ import TextField from '@mui/material/TextField';
 class Student extends Component {
     constructor(props) {
       super(props);
-      this.state = {open: false, stud:[] };
+      this.state = { studs:[] };
     }
     
     //componentDidMount() {
@@ -39,7 +39,7 @@ class Student extends Component {
               method: 'POST', 
               headers: { 'Content-Type': 'application/json',
                          'X-XSRF-TOKEN': token }, 
-              body: JSON.stringify(this.state.irows.name, this.state.irows.email)
+              body: JSON.stringify(this.state.STUDNAMES.name, this.state.STUDNAMES.email)
             } )
         .then(res => {
             if (res.ok) {
@@ -67,7 +67,7 @@ class Student extends Component {
             { field: 'name', headerName: 'Name', width: 300, editable:true},
             { field: 'email', headerName: 'Email', width: 300 , editable:true},
         ];
-        const irows = [{id:0, name:' name here ', email:' email here '}];
+
         return (
             <div>
               <Button variant="outlined" color="primary" style={{margin: 10}} onClick={this.handleClickOpen}>
@@ -76,7 +76,7 @@ class Student extends Component {
               <Dialog open={this.state.open} onClose={this.handleClose}>
                   <DialogTitle>Add Student</DialogTitle>
                   <DialogContent  style={{paddingTop: 20}} >
-                    <TextField autoFocus fullWidth label="Student Id" name="student_id" onChange={this.handleChange}  /> 
+                    <TextField autoFocus fullWidth label="Name" name="name" onChange={this.handleChange}  /> 
                   </DialogContent>
                   <DialogActions>
                     <Button color="secondary" onClick={this.handleClose}>Cancel</Button>
@@ -84,7 +84,7 @@ class Student extends Component {
                   </DialogActions>
                 </Dialog>
                 <div style={{ height: 400, width: '100%' }}>
-                    <DataGrid rows={irows} columns={icolumns} />
+                    <DataGrid rows={STUDNAMES} columns={icolumns} />
                     <Button id="AddStudent" variant="outlined" color="primary" style={{margin: 10}} onClick={this.addStudent} >
                    Add Student
                 </Button>
