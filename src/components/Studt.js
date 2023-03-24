@@ -12,14 +12,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AddStudent from './AddStudent';
 
-// NOTE:  for OAuth security, http request must have
-//   credentials: 'include' 
-//
-
-// properties year, semester required
-//  
-//  NOTE: because SchedList is invoked via <Route> in App.js  
-//  props are passed in props.location
 
 class Studt extends Component {
   constructor(props) {

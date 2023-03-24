@@ -26,7 +26,7 @@ import TextField from '@mui/material/TextField';
 class AddStudent extends Component {
     constructor(props) {
     super(props);
-    this.state.student = {open: false, student:[] };
+    this.state.student = {open: false, students: [] };
   };
   
   handleClickOpen = () => {
