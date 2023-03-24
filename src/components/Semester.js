@@ -26,7 +26,7 @@ class Semester extends Component {
    onRadioClick = (event) => {
     console.log("Semester.onRadioClick "+JSON.stringify(event.target.value));
     this.setState({selected: event.target.value});
-  };
+  }
 
 
   // Add Student
@@ -57,7 +57,7 @@ class Semester extends Component {
             position: toast.POSITION.BOTTOM_LEFT
         });
         console.error(err);
-    });
+    })
   } 
   
   render() {    
@@ -69,7 +69,7 @@ class Semester extends Component {
         renderCell: (params) => (
           <div>
             <Radio
-              checked={params.row.id === this.state.selected}
+              checked={params.row.id == this.state.selected}
               onChange={this.onRadioClick}
               value={params.row.id}
               color="default"
@@ -103,13 +103,7 @@ class Semester extends Component {
                 variant="outlined" color="primary" style={{margin: 10}}>
                 Get Schedule
               </Button>
-              </div>
               </div>  
-              <div className="App">
-            <div style={{width:'100%'}}>
-                For DEBUG:  display state.
-                {JSON.stringify(this.state)}
-            </div>
               <Grid container>
                 <Grid item>
 			            <ButtonGroup>
@@ -117,9 +111,8 @@ class Semester extends Component {
 				          </ButtonGroup>
               </Grid>
             </Grid>
-            
             <ToastContainer autoClose={1500} /> 
-            </div>
+          </div>
       </div>
     )
   }

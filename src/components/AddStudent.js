@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import {SEMESTER_LIST, SERVER_URL, STUDNAMES} from '../constants.js'
 import Grid from '@mui/material/Grid';
 import {DataGrid} from '@mui/x-data-grid';
-import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+
+
+import Button from '@mui/material/Button';
+import React, { Component } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -22,7 +25,7 @@ import TextField from '@mui/material/TextField';
 class AddStudent extends Component {
     constructor(props) {
     super(props);
-    this.state = {open: false, student:{ } };
+    this.state.student = {open: false, student:{ } };
   };
   
   handleClickOpen = () => {
