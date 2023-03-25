@@ -41,7 +41,7 @@ class Studt extends Component {
           toast.success("Student successfully added", {
               position: toast.POSITION.BOTTOM_LEFT
           });
-          this.fetchCourses();
+          //this.fetchCourses();
         } else {
           toast.error("Error when adding student code 1", {
               position: toast.POSITION.BOTTOM_LEFT
@@ -65,7 +65,7 @@ class Studt extends Component {
     <AppBar position="static" color="default">
        <Toolbar>
           <Typography variant="h6" color="inherit">
-             Schedule - select a term
+             Add A Student
           </Typography>
        </Toolbar>
     </AppBar>
