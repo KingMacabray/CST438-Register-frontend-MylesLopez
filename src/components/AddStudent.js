@@ -1,17 +1,3 @@
-
-/*
-import { ToastContainer, toast } from 'react-toastify';
-import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
-import {SEMESTER_LIST, SERVER_URL, STUDNAMES} from '../constants.js'
-import Grid from '@mui/material/Grid';
-import {DataGrid} from '@mui/x-data-grid';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import AppBar from '@mui/material/AppBar'; 
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-*/
-
 import Button from '@mui/material/Button';
 import React, { Component } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
@@ -32,7 +18,7 @@ class AddStudent extends Component {
   
   // Open and close modal form
   handleClickOpen = () => {
-    this.setState( {open:true} );
+    this.setState( {open:true, width:400} );
   };
 
   handleClose = () => {
