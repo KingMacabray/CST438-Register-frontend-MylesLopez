@@ -40,8 +40,8 @@ class AddStudent extends Component {
   };
 
   // Change name and email variables
-  handleChange = (event) => {
-    this.setState({[event.target.name]: event.target.value});
+  handleChange = (eventS) => {
+    this.setState({[eventS.target.name]: eventS.target.value});
   }
 
 // Save course and close modal form
@@ -60,6 +60,7 @@ class AddStudent extends Component {
               <DialogTitle>Add Student</DialogTitle>
               <DialogContent  style={{paddingTop: 20}} >
                 <TextField autoFocus fullWidth label="Student Name" name="student_name" onChange={this.handleChange}  />
+                <br></br>
                 <br></br>
                 <TextField autoFocus fullWidth label="Student Email" name="student_email" onChange={this.handleChange}  /> 
               </DialogContent>

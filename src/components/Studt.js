@@ -59,7 +59,7 @@ class Studt extends Component {
     <AppBar position="static" color="default">
        <Toolbar>
           <Typography variant="h6" color="inherit">
-             Add A Student
+             This Page Will be Used to Handle Student Controller Functions
           </Typography>
        </Toolbar>
     </AppBar>

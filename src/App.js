@@ -7,9 +7,6 @@ import Studt from './components/Studt';
 import Semester from './components/Semester';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-//import AddStudent from './components/AddStudent';
-//import Button from '@mui/material/Button';
-//import ButtonGroup from '@mui/material/ButtonGroup';
 
 function App() {
   return (
