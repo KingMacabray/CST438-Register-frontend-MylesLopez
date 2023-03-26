@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import {SERVER_URL} from '../constants.js'
 import Grid from '@mui/material/Grid';
-import {DataGrid} from '@mui/x-data-grid';
-import Button from '@mui/material/Button';
+//import {DataGrid} from '@mui/x-data-grid';
+//import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,14 +18,9 @@ class Studt extends Component {
     super(props);
     this.state = { student: { } };
   } 
-  /*
-  componentDidMount() {
-    this.fetchCourses();
-  }
-  */
   
 
-  // Add student
+  // Add student function
   addStudent = (student) => {
     const token = Cookies.get('XSRF-TOKEN');
  
@@ -41,15 +36,15 @@ class Studt extends Component {
           toast.success("Student successfully added", {
               position: toast.POSITION.BOTTOM_LEFT
           });
-          //this.fetchCourses();
+          // Code 1 & 2 for debugging purposes
         } else {
-          toast.error("Error when adding student code 1", {
+          toast.error("Error when adding student - code 1", {
               position: toast.POSITION.BOTTOM_LEFT
           });
           console.error('Post http status =' + res.status);
         }})
     .catch(err => {
-      toast.error("Error when adding student code 2", {
+      toast.error("Error when adding student - code 2", {
             position: toast.POSITION.BOTTOM_LEFT
         });
         console.error(err);
@@ -57,8 +52,7 @@ class Studt extends Component {
   } 
   
 
-  render() {
-     
+  render() {  
   
   return(
     <div>

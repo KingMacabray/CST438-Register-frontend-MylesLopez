@@ -22,13 +22,15 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
 
-// properties addStudent is required, function called when Add clicked.
+/* properties addStudent is required, function called when Add clicked.
+/  Initializes student_name and student_email variables */
 class AddStudent extends Component {
     constructor(props) {
     super(props);
-    this.state = {open: false, student_name:"didnt", student_email:"work" };
+    this.state = {open: false, student_name:"", student_email:"" };
   };
   
+  // Open and close modal form
   handleClickOpen = () => {
     this.setState( {open:true} );
   };
@@ -37,18 +39,11 @@ class AddStudent extends Component {
     this.setState( {open:false} );
   };
 
+  // Change name and email variables
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value});
   }
-  /*
-  handleChangeName = (nameEvent) => {
-    this.setState({student_name: nameEvent.target.value});
-  }
 
-  handleChangeEmail = (emailEvent) => {
-    this.setState({student_email: emailEvent.target.value});
-  }
-  */
 // Save course and close modal form
   handleAdd = () => {
      this.props.addStudent({student_name: this.state.student_name, student_email: this.state.student_email});
@@ -65,7 +60,7 @@ class AddStudent extends Component {
               <DialogTitle>Add Student</DialogTitle>
               <DialogContent  style={{paddingTop: 20}} >
                 <TextField autoFocus fullWidth label="Student Name" name="student_name" onChange={this.handleChange}  />
-                <br/>
+                <br></br>
                 <TextField autoFocus fullWidth label="Student Email" name="student_email" onChange={this.handleChange}  /> 
               </DialogContent>
               <DialogActions>
