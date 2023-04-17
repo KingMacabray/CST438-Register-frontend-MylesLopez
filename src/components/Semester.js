@@ -94,7 +94,7 @@ class Semester extends Component {
               <div style={{ height: 400, width: '100%', align:"left"   }}>
                 <DataGrid   rows={SEMESTER_LIST} columns={icolumns} />
               </div>                
-              <Button component={Link} 
+              <Button id = 'selectTerm' component={Link} 
                       to={{pathname:'/schedule' , 
                       year:SEMESTER_LIST[this.state.selected].year, 
                       semester:SEMESTER_LIST[this.state.selected].name}} 
