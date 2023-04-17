@@ -36,13 +36,13 @@ class Studt extends Component {
           });
           // Code 1 & 2 for debugging purposes
         } else {
-          toast.error("Error when adding student - code 1", {
+          toast.error("Error when adding student - Code 1", {
               position: toast.POSITION.BOTTOM_LEFT
           });
           console.error('Post http status =' + res.status);
         }})
     .catch(err => {
-      toast.error("Error when adding student - code 2", {
+      toast.error("Error when adding student - Code 2", {
             position: toast.POSITION.BOTTOM_LEFT
         });
         console.error(err);
