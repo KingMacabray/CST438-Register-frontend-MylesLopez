@@ -68,7 +68,7 @@ class Studt extends Component {
       </div>
       <Grid container>
         <Grid item>
-          <ButtonGroup>
+          <ButtonGroup id='studtAddStud'>
             <AddStudent addStudent={this.addStudent}  />
           </ButtonGroup>
         </Grid>

@@ -101,12 +101,12 @@ class Semester extends Component {
                 variant="outlined" color="primary" style={{margin: 10}}>
                 Get Schedule
               </Button>
-              <Button component={Link} 
+              <Button id='toStudt' component={Link} 
                       to={{pathname:'/student'}} 
                 variant="outlined" color="primary" style={{margin: 10}}>
                 Student Page
               </Button>
-              <ButtonGroup>
+              <ButtonGroup id='semesterAddStud'>
                 <AddStudent addStudent={this.addStudent}  />
               </ButtonGroup>
               <ToastContainer autoClose={1500} />
