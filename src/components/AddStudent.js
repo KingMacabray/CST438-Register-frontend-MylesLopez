@@ -39,20 +39,20 @@ class AddStudent extends Component {
   render()  { 
     return (
         <div>
-          <Button variant="outlined" color="primary" style={{margin: 10}} onClick={this.handleClickOpen}>
+          <Button id="studentButton" variant="outlined" color="primary" style={{margin: 10}} onClick={this.handleClickOpen}>
             Add Student
           </Button>
           <Dialog open={this.state.open} onClose={this.handleClose}>
               <DialogTitle>Add Student</DialogTitle>
               <DialogContent  style={{paddingTop: 20}} >
-                <TextField autoFocus fullWidth label="Student Name" name="student_name" onChange={this.handleChange}  />
+                <TextField autoFocus fullWidth id='studName' label="Student Name" name="student_name" onChange={this.handleChange}  />
                 <br></br>
                 <br></br>
-                <TextField autoFocus fullWidth label="Student Email" name="student_email" onChange={this.handleChange}  /> 
+                <TextField autoFocus fullWidth id='studEmail' label="Student Email" name="student_email" onChange={this.handleChange}  /> 
               </DialogContent>
               <DialogActions>
                 <Button color="secondary" onClick={this.handleClose}>Cancel</Button>
-                <Button id="Add" color="primary" onClick={this.handleAdd}>Add</Button>
+                <Button id="AddStud" color="primary" onClick={this.handleAdd}>Add</Button>
               </DialogActions>
             </Dialog>      
         </div>
